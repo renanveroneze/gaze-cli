@@ -81,7 +81,9 @@ gaze(pattern, function(err, watcher) {
 // Function to run when something changes
 function run(filepath) {
 	var startTime = process.hrtime();
-	var uniqueCommand = command.replace('$path', filepath);
+
+	var uniqueCommand = command + ' "' + filepath + '"'
+
 	if (!argv.silent) {
 		console.log('>', uniqueCommand);
 	}
